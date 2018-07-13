@@ -13,6 +13,7 @@ Access the database content in JSON via [this url](https://spreadsheets.google.c
 The map viewer on this github is a basic proof-of-concept using the "OpenLayers" api as a map provider (maps from OpenStreetMaps). Feel free to make your own better viewer, possibly with built-in pin-adder or something.
 
 Alternative way of adding pins: send a POST request to [this url](https://script.google.com/macros/s/AKfycbwQgNJulIMS8j_qkfbwNxmqb-ALGI_3Q7zeCykbklwvBToZZbd-/exec). Example data:
+
     name: Ko
     lat: 69.696969
     long: 69.696969
