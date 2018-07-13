@@ -1,0 +1,40 @@
+<html><body>
+  <div id="mapdiv"></div>
+  <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+
+    map = new OpenLayers.Map("mapdiv");
+    map.addLayer(new OpenLayers.Layer.OSM());
+
+    var markers = new OpenLayers.Layer.Markers( "Markers" );
+    map.addLayer(markers);
+
+    map.zoomTo(1);
+
+    request = $.getJSON("https://spreadsheets.google.com/feeds/list/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/3/public/values?alt=json", function(data){
+        for (var point of data.feed.entry) {
+
+            name = point.gsx$name.$t;
+            lat = point.gsx$lat.$t;
+            long = point.gsx$long.$t;
+            info = point.gsx$info.$t;
+            
+            var lonLat = new OpenLayers.LonLat( long, lat )
+              .transform(
+                new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                map.getProjectionObject() // to Spherical Mercator Projection
+              );
+
+            marker = new OpenLayers.Marker( lonLat );
+            markers.addMarker(marker);
+
+            marker.icon.imageDiv.title = name;
+            marker.icon.imageDiv.style.cursor = "pointer";
+            marker.icon.imageDiv.dataset.popup = name + "\n\n" + info + "\n";
+            marker.icon.imageDiv.onclick = function(){alert( this.dataset.popup )};
+        }
+    });
+
+  </script>
+</body></html>
