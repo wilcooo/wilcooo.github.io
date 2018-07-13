@@ -14,6 +14,7 @@
 
         var icon = new OpenLayers.Icon('/marker.png', new OpenLayers.Size(20,20), new OpenLayers.Pixel(0,-20) );
 
+        // THIS IS WHERE WE FETCH THE DATA (using jQuery!)
         request = $.getJSON("https://spreadsheets.google.com/feeds/list/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/3/public/values?alt=json", function(data){
             for (var point of data.feed.entry) {
 
