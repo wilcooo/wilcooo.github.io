@@ -1,6 +1,6 @@
 <html><body>
   <div id="mapdiv"></div>
-  <script src="OpenLayers.js"></script>
+  <script src="/OpenLayers.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
 
@@ -11,6 +11,8 @@
     map.addLayer(markers);
 
     map.zoomTo(1);
+    
+    var icon = new OpenLayers.Icon('/marker.png', new OpenLayers.Size(20,20), new OpenLayers.Pixel(0,-20) );
 
     request = $.getJSON("https://spreadsheets.google.com/feeds/list/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/3/public/values?alt=json", function(data){
         for (var point of data.feed.entry) {
@@ -26,7 +28,8 @@
                 map.getProjectionObject() // to Spherical Mercator Projection
               );
 
-            marker = new OpenLayers.Marker( lonLat );
+            marker = new OpenLayers.Marker( lonLat, icon.clone() );
+          
             markers.addMarker(marker);
 
             marker.icon.imageDiv.title = name;
