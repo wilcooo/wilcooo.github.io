@@ -4,11 +4,11 @@
 This is a proof-of-concept viewer for the TagPro Player Map.
 
 
-Add a player via a [JotForm®](https://form.jotformeu.com/81933086201351) (linked to the Google Sheet)  
+Add a player via [this JotForm®](https://form.jotformeu.com/81933086201351) (linked to the Google Sheet)  
 
-Database in a [Google® Sheet](https://docs.google.com/spreadsheets/d/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/edit?usp=sharing)
+Database in [this Google® Sheet](https://docs.google.com/spreadsheets/d/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/edit?usp=sharing)
 
-Access the database content in JSON via this [url](https://spreadsheets.google.com/feeds/list/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/3/public/values?alt=json) (I had to enable "publish on web" in the Google Sheet for this to work)
+Access the database content in JSON via [this url](https://spreadsheets.google.com/feeds/list/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/3/public/values?alt=json) (I had to enable "publish on web" in the Google Sheet for this to work)
 
 The map viewer on this github is a basic proof-of-concept using the "OpenLayers" api as a map provider (maps from OpenStreetMaps). Feel free to make your own better viewer, possibly with built-in pin-adder or something.
 
