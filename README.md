@@ -19,6 +19,4 @@ Alternative way of adding pins: send a POST request to [this url](https://script
     long: 69.696969
     info: "This is a test"
 
-(please don't POST false data, or I'll have to remove those lines manually in the Google Sheet)
-
 Request edit access to the form or database sheet on reddit: /u/Wilcooo
