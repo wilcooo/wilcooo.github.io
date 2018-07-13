@@ -15,13 +15,16 @@
         var icon = new OpenLayers.Icon('/marker.png', new OpenLayers.Size(20,20), new OpenLayers.Pixel(0,-20) );
 
         // THIS IS WHERE WE FETCH THE DATA (using jQuery!)
-        request = $.getJSON("https://spreadsheets.google.com/feeds/list/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/3/public/values?alt=json", function(data){
+        request = $.getJSON("https://spreadsheets.google.com/feeds/list/1A0XlRE212GZ1holxOmjR5LBlQR7WBiovUBubFrKaEuk/1/public/values?alt=json", function(data){
             for (var point of data.feed.entry) {
 
                 name = point.gsx$name.$t;
                 lat = point.gsx$lat.$t;
                 long = point.gsx$long.$t;
                 info = point.gsx$info.$t;
+                removed = point.gsx$removed.$t;
+              
+                if (removed != "") continue;
 
                 var lonLat = new OpenLayers.LonLat( long, lat )
                   .transform(
